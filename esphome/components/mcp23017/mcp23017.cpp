@@ -23,6 +23,10 @@ void MCP23017::setup() {
     this->write_reg(mcp23x17_base::MCP23X17_IOCONA, 0x04);
     this->write_reg(mcp23x17_base::MCP23X17_IOCONB, 0x04);
   }
+
+  // all pins input
+  this->write_reg(mcp23x17_base::MCP23X17_IODIRA, 0xFF);
+  this->write_reg(mcp23x17_base::MCP23X17_IODIRB, 0xFF);
 }
 
 void MCP23017::dump_config() { ESP_LOGCONFIG(TAG, "MCP23017:"); }
